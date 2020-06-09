@@ -1,0 +1,21 @@
+#! python3
+"""
+
+"""
+
+
+def ex():
+    print("exercise.")
+
+
+def main():
+    print("main.")
+
+
+def test():
+    print("unit test success.")
+
+
+if __name__ == "__main__":
+    test()
+    main()
