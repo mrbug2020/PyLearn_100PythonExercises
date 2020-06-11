@@ -8,30 +8,33 @@ In các số tìm được thành chuỗi cách nhau bởi dấu phẩy, trên m
 COMMA = ","
 
 
-def isEvenNumber(num):
-    return num % 2 == 0
+def isAllEvenNumber(num):
+    for digit in str(num):
+        if int(digit) % 2 != 0:
+            return False
+    return True
 
 
 def main():
     inputStr = input(
         "Input numbers to check even number seperator by comma(','): ")
-    inputNumbers = [int(x) for x in inputStr.split(COMMA)]
+    inputNumbers = [x for x in inputStr.split(COMMA)]
     evenNumbers = []
     for num in inputNumbers:
-        if isEvenNumber(int(num)):
-            evenNumbers.append(str(num))
+        if isAllEvenNumber(num):
+            evenNumbers.append(num)
     print(COMMA.join(evenNumbers))
 
 
 def test():
-    assert(isEvenNumber(2))
-    assert(isEvenNumber(9792))
-    assert(not isEvenNumber(1001))
-    assert(not isEvenNumber(99999))
+    assert(isAllEvenNumber(2468))
+    assert(isAllEvenNumber(206628440))
+    assert(not isAllEvenNumber(222222322222222))
+    assert(not isAllEvenNumber(88888888888888888888898888))
     for num in range(1000, 3000 + 1):
-        if isEvenNumber(num):
+        if isAllEvenNumber(num):
             print(num, end=",")
-    print("unit test success.")
+    print("\nunit test success.")
 
 
 if __name__ == "__main__":
